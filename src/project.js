@@ -49,6 +49,19 @@ export function save() {
     projectArray.push(inputValue);
 }
 
+// edit project
+
+export function editProject(e) {
+    let projectArrayNumber = e.target.getAttribute('data-project');
+    
+}
+
+// delete project
+
+export function deleteProject(projectArrayNumber) {
+    projectArray.splice(parseInt(projectArrayNumber), 1);
+}
+
 // project and todo samples for testing
 
 const run = todo('Run', 'Run in marathon', '8 Dec', 'High', 'Not completed');

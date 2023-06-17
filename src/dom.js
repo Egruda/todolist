@@ -40,13 +40,19 @@ export default function display() {
 
         let iconAdd = document.createElement('img');
         iconAdd.classList.add('icon');
+        iconAdd.classList.add('addTodo');
+        iconAdd.setAttribute('data-project', i);
         iconAdd.src = addIcon;
         let iconDelete = document.createElement('img');
         iconDelete.classList.add('icon');
+        iconDelete.classList.add('deleteProject');
         iconDelete.src = delIcon;
+        iconDelete.setAttribute('data-project', i);
         let iconEdit = document.createElement('img');
         iconEdit.classList.add('icon');
+        iconEdit.classList.add('editProject');
         iconEdit.src = editIcon;
+        iconEdit.setAttribute('data-project', i);
 
         divIcon[i].appendChild(iconAdd);
         divIcon[i].appendChild(iconDelete);

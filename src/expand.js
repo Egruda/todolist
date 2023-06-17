@@ -3,6 +3,7 @@ import {reset} from "./dom.js";
 import addProject from "./addproject.js";
 import delIcon from "./delete.png";
 import editIcon from "./edit.png";
+import { deleteProjectForm } from "./deleteprojectform.js";
 
 export default function activateListener() {
     
@@ -18,6 +19,10 @@ export default function activateListener() {
     let addProjectButton = document.querySelector('#add');
     addProjectButton.addEventListener('click', addProject);
 
+
+
+    let deleteProjectButtons = document.querySelectorAll('.deleteProject');
+    deleteProjectButtons.forEach((deleteProjectButton) => deleteProjectButton.addEventListener('click', deleteProjectForm));
 }
 
 function expandTodo(e) {

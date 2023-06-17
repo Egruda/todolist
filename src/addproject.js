@@ -62,7 +62,7 @@ export default function addProject() {
 
 
 
-function deleteForm() {
+export function deleteForm() {
     let divProjectForm = document.querySelector('.divProjectForm')
     divProjectForm.remove();
 }
