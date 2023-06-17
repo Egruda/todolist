@@ -1,0 +1,147 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    
+}
+
+.container {
+    display: flex;
+}
+
+.left-banner {
+    background-color: #FF8551;
+    flex: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    
+}
+
+h1 {
+    font-size: 3rem;
+    color: #FAF0E4;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+.right-banner {
+    background-color: #FFDEDE;
+    flex: 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 30px;
+    gap: 50px;
+    position: relative;
+}
+
+.icon {
+    width: 30px;
+}
+
+.card {
+    
+    border: 30px solid #9BCDD2;
+    padding: 15px;
+    border-radius: 30px;
+    color: black;
+    font-weight: bold;
+    background-color: #FAF0E4;
+}
+
+.topcard {
+    border-bottom: 1px solid black;
+}
+
+.todoList {
+    display:flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    height:50px;
+    align-items: center;
+    
+    
+}
+
+.divIcon {
+    text-align: right;
+}
+
+.left-task{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}   
+
+.bottomcard{
+    display:flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+input {
+    margin: 0;
+}
+
+.todoExpandDiv {
+    padding: 10px;
+    background-color: #9BCDD2;
+}
+
+.todoExpandDiv div {
+    text-align: end;
+}
+
+.todoTitle:hover {
+    text-decoration: underline;
+}
+
+.priority {
+    width: 35px;
+    height: 35px;
+}
+
+.completed {
+    
+    text-decoration: line-through;
+}
+
+.todoTitle.completed:hover{
+    text-decoration: line-through;
+}
+
+.divProjectForm {
+    background-color: #FFDEDE;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+    border: ridge 15px #FF8551;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.addFormIcon {
+    width: 30px;
+}
+
+.button-project {
+    display: flex;
+    gap: 15px;
+}
+
+.divProjectForm form {
+    display: flex;
+    gap: 15px;
+}
