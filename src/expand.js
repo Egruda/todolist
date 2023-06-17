@@ -4,6 +4,9 @@ import addProject from "./addproject.js";
 import delIcon from "./delete.png";
 import editIcon from "./edit.png";
 import { deleteProjectForm } from "./deleteprojectform.js";
+import { editProjectForm } from "./editprojectform.js";
+import { addTodoForm } from "./addTodo.js";
+import { deleteTodoForm } from "./deleteprojectform.js";
 
 export default function activateListener() {
     
@@ -19,10 +22,14 @@ export default function activateListener() {
     let addProjectButton = document.querySelector('#add');
     addProjectButton.addEventListener('click', addProject);
 
-
+    let editProjectButtons = document.querySelectorAll('.editProject');
+    editProjectButtons.forEach((editProjectButton) => editProjectButton.addEventListener('click', editProjectForm));
 
     let deleteProjectButtons = document.querySelectorAll('.deleteProject');
     deleteProjectButtons.forEach((deleteProjectButton) => deleteProjectButton.addEventListener('click', deleteProjectForm));
+
+    let addTodoButtons = document.querySelectorAll('.addTodo');
+    addTodoButtons.forEach((addTodoButton) => addTodoButton.addEventListener('click', addTodoForm));
 }
 
 function expandTodo(e) {
@@ -44,9 +51,15 @@ function expandTodo(e) {
     let iconDelete = document.createElement('img');
     iconDelete.classList.add('icon');
     iconDelete.src = delIcon;
+    iconDelete.setAttribute('data-project', projectArrayNumber);
+    iconDelete.setAttribute('data-todo', todoArrayNumber);
+    iconDelete.classList.add('deleteTodo');
     let iconEdit = document.createElement('img');
     iconEdit.classList.add('icon');
     iconEdit.src = editIcon;
+    iconEdit.setAttribute('data-project', projectArrayNumber);
+    iconEdit.setAttribute('data-todo', todoArrayNumber);
+    iconEdit.classList.add('editTodo');
 
     todoIconsDiv.appendChild(iconDelete);
     todoIconsDiv.appendChild(iconEdit);
@@ -56,6 +69,9 @@ function expandTodo(e) {
     todoExpandDiv.appendChild(todoIconsDiv);
 
     parentSelector.insertBefore(todoExpandDiv, siblingSelector.nextSibling);
+
+    iconDelete.addEventListener('click', deleteTodoForm);
+
 }
 
 function deleteExpand() {
@@ -74,7 +90,6 @@ function complete(e) {
         console.log('not completed');
     }
     reset()
-    
-
 }    
+
 
