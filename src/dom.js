@@ -1,11 +1,11 @@
-import {projectArray} from "./project.js";
+import {project, projectArray} from "./project.js";
 import addIcon from './add.png';
 import delIcon from './delete.png';
 import editIcon from './edit.png';
 import importantIcon from './priority.png'
 import activateListener, { deleteExpand } from "./expand.js";
 
-export default function display() {
+export default function display(projectArray) {
     let card = [];
     let topcard = [];
     let projectName = [];
@@ -17,6 +17,8 @@ export default function display() {
     let date = [];
 
     let checklist = [];
+
+    console.log(projectArray.length);
 
     for(let i =0; i < projectArray.length; i++) {
         card[i] = document.createElement('div');

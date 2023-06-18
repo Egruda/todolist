@@ -1,5 +1,6 @@
-import {format, parseISO} from "date-fns"; 
-import { storageAvailable } from "./storage";
+import {format} from "date-fns"; 
+
+import { storeLocalStorage } from ".";
 
 
 // create to do factories
@@ -51,7 +52,7 @@ export function save() {
     let inputValue = document.querySelector('.inputProject').value;
     inputValue = addProject(inputValue);
     projectArray.push(inputValue);
-    storeLocalStorage();
+    // storeLocalStorage();
 }
 
 // edit project
@@ -59,14 +60,14 @@ export function save() {
 export function editProject(projectArrayNumber) {
     let newName = document.querySelector('.inputProject').value;
     projectArray[projectArrayNumber].name = newName;
-    storeLocalStorage();
+    // storeLocalStorage();
 }
 
 // delete project
 
 export function deleteProject(projectArrayNumber) {
     projectArray.splice(parseInt(projectArrayNumber), 1);
-    storeLocalStorage();
+    // storeLocalStorage();
 }
 
 // addtodo function
@@ -86,7 +87,7 @@ export function addTodos(projectArrayNumber) {
 
     title = addTodo(title, description, duedate, priority);
     projectArray[projectArrayNumber].todoArray.push(title);
-    storeLocalStorage();
+    // storeLocalStorage();
 }
 
 export function editTodo(projectArrayNumber, todoArrayNumber) {
@@ -101,14 +102,14 @@ export function editTodo(projectArrayNumber, todoArrayNumber) {
     projectArray[projectArrayNumber].todoArray[todoArrayNumber].description = description;
     projectArray[projectArrayNumber].todoArray[todoArrayNumber].dueDate = duedate;
     projectArray[projectArrayNumber].todoArray[todoArrayNumber].priority = priority;
-    storeLocalStorage();
+    // storeLocalStorage();
 }   
 
 
 // delete Todo
 export function deleteTodo(projectArrayNumber, todoArrayNumber) {
     projectArray[projectArrayNumber].todoArray.splice(todoArrayNumber,1);
-    storeLocalStorage();
+    // storeLocalStorage();
 }
 
 
@@ -126,15 +127,4 @@ Training.todoArray[1] = Swim;
 export let projectArray = [Training, Studying];
 
 
-if (storageAvailable("localStorage")) {
-    const storedProjects = JSON.parse(localStorage.getItem('projects'));
-    projectArray = storedProjects;
-  } else {
-    projectArray = [Training, Studying];
-  }
-
-  function storeLocalStorage() {
-    if (storageAvailable("localStorage")) {
-        localStorage.setItem('projects', JSON.stringify(projectArray));
-      }
-}
+ 
