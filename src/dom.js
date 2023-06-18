@@ -7,6 +7,8 @@ import activateListener, { deleteExpand } from "./expand.js";
 
 // Displaying cards
 
+let a = 'test';
+
 export default function display() {
     let card = [];
     let topcard = [];
