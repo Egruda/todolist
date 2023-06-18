@@ -5,6 +5,8 @@ import editIcon from './edit.png';
 import importantIcon from './priority.png'
 import activateListener, { deleteExpand } from "./expand.js";
 
+// Displaying cards
+
 export default function display() {
     let card = [];
     let topcard = [];
