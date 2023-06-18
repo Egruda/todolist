@@ -1,4 +1,4 @@
-import { addTodos } from './project';
+import { addTodos } from './index.js';
 import addIcon from './add.png';
 import { deleteForm } from './addproject';
 import { reset } from './dom';

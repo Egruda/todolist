@@ -1,15 +1,15 @@
-import {projectArray} from "./project.js";
+
 import addIcon from './add.png';
 import delIcon from './delete.png';
 import editIcon from './edit.png';
 import importantIcon from './priority.png'
 import activateListener, { deleteExpand } from "./expand.js";
+import { projectArray } from './index.js';
 
 // Displaying cards
 
-let a = 'test';
 
-export default function display() {
+export default function display(projectArray) {
     let card = [];
     let topcard = [];
     let projectName = [];
@@ -22,6 +22,7 @@ export default function display() {
 
     let checklist = [];
 
+ 
     for(let i =0; i < projectArray.length; i++) {
         card[i] = document.createElement('div');
         card[i].classList.add('card');
@@ -144,6 +145,7 @@ export default function display() {
         container.appendChild(card[i]);
         
     }
+   
 };
 
 export function reset() {
@@ -151,6 +153,6 @@ export function reset() {
     
     rightbanner.replaceChildren();
     
-    display();
+    display(projectArray);
     activateListener();
 }

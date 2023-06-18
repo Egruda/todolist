@@ -1,7 +1,7 @@
-import { editProject, editTodo } from "./project";
+import { editProject, editTodo } from "./index.js";
 import { reset } from "./dom";
 import { deleteForm } from "./addproject";
-import { projectArray } from "./project";
+import { projectArray } from "./index.js";
 import { deleteExpand } from "./expand";
 import { updateTodo } from "./expand";
 

@@ -1,4 +1,4 @@
-import {projectArray} from "./project.js";
+import {projectArray} from "./index.js";
 import {reset} from "./dom.js";
 import addProject from "./addproject.js";
 import delIcon from "./delete.png";

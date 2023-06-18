@@ -1,8 +1,8 @@
-import { deleteProject } from "./project";
+import { deleteProject } from "./index.js";
 import { reset } from "./dom";
 import { deleteForm } from "./addproject";
-import { projectArray } from "./project";
-import { deleteTodo } from "./project";
+import { projectArray } from "./index.js";
+import { deleteTodo } from "./index.js";
 
 
 export function deleteProjectForm(e) {

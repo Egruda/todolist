@@ -1,7 +1,8 @@
 
 import addIcon from './add.png';
-import { save } from './project';
+import { saveIt } from './index.js';
 import { reset } from './dom';
+
 
 
 
@@ -55,7 +56,7 @@ export default function addProject() {
     buttonCancel.addEventListener('click', deleteForm);
 
     buttonSave.addEventListener('click', () => {
-        save();
+        saveIt();
         reset();    
     })
 

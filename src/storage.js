@@ -23,5 +23,4 @@ export function storageAvailable(type) {
         storage.length !== 0
       );
     }
-    
   }
