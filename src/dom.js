@@ -18,8 +18,6 @@ export default function display() {
 
     let checklist = [];
 
-    
-
     for(let i =0; i < projectArray.length; i++) {
         card[i] = document.createElement('div');
         card[i].classList.add('card');
@@ -83,9 +81,6 @@ export default function display() {
             checklist[k].setAttribute('data-todo', k);
             checklist[k].classList.add('checkbox');
             
-            
-            
-            
             title[k] = document.createElement('p');
             title[k].classList.add('todoTitle');
             title[k].setAttribute('data-project', i);
@@ -98,7 +93,6 @@ export default function display() {
                 checklist[k].checked = true;
             }
 
-            
             checklistTitle[k].appendChild(checklist[k]);
             checklistTitle[k].appendChild(title[k]);
             
