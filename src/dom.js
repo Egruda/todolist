@@ -3,7 +3,7 @@ import addIcon from './add.png';
 import delIcon from './delete.png';
 import editIcon from './edit.png';
 import importantIcon from './priority.png'
-import activateListener from "./expand.js";
+import activateListener, { deleteExpand } from "./expand.js";
 
 export default function display() {
     let card = [];
@@ -148,7 +148,9 @@ export default function display() {
 
 export function reset() {
     let rightbanner = document.querySelector('.right-banner');
+    
     rightbanner.replaceChildren();
+    
     display();
     activateListener();
 }

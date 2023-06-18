@@ -13,6 +13,7 @@ export function addTodoForm(e) {
     
     let divForm = document.createElement('div');
     divForm.classList.add('divProjectForm');
+    divForm.classList.add('todo-form');
 
     let projectForm = document.createElement('form');
     
@@ -36,6 +37,7 @@ export function addTodoForm(e) {
     let inputFormDueDate = document.createElement('input');
     inputFormDueDate.classList.add('inputTodo')
     inputFormDueDate.classList.add('todo-duedate');
+    inputFormDueDate.setAttribute('type','date');
 
     let labelFormPriority = document.createElement('label');
     labelFormPriority.textContent = 'Priority:   '

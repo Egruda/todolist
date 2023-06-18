@@ -7,6 +7,7 @@ import { deleteProjectForm } from "./deleteprojectform.js";
 import { editProjectForm } from "./editprojectform.js";
 import { addTodoForm } from "./addTodo.js";
 import { deleteTodoForm } from "./deleteprojectform.js";
+import { editTodoForm } from "./editprojectform.js";
 
 export default function activateListener() {
     
@@ -71,10 +72,11 @@ function expandTodo(e) {
     parentSelector.insertBefore(todoExpandDiv, siblingSelector.nextSibling);
 
     iconDelete.addEventListener('click', deleteTodoForm);
+    iconEdit.addEventListener('click', editTodoForm);
 
 }
 
-function deleteExpand() {
+export function deleteExpand() {
     if(document.querySelector('.todoExpandDiv') !== null) {
         document.querySelector('.todoExpandDiv').remove();
 }}
@@ -93,3 +95,41 @@ function complete(e) {
 }    
 
 
+export function updateTodo(projectArrayNumber, todoArrayNumber) {
+    let parentSelector = document.querySelector(`.bottomcard[data-project='${projectArrayNumber}']`);
+    let siblingSelector = document.querySelector(`.todoList[data-project='${projectArrayNumber}'][data-todo='${todoArrayNumber}']`);
+
+    let todoExpandDiv = document.createElement('div');
+    todoExpandDiv.classList.add('todoExpandDiv');
+
+    let todoExpand = document.createElement('p');
+    todoExpand.classList.add('todoExpand');
+    todoExpand.textContent = projectArray[projectArrayNumber].todoArray[todoArrayNumber].description;
+    
+    let todoIconsDiv = document.createElement('div');
+    
+    let iconDelete = document.createElement('img');
+    iconDelete.classList.add('icon');
+    iconDelete.src = delIcon;
+    iconDelete.setAttribute('data-project', projectArrayNumber);
+    iconDelete.setAttribute('data-todo', todoArrayNumber);
+    iconDelete.classList.add('deleteTodo');
+    let iconEdit = document.createElement('img');
+    iconEdit.classList.add('icon');
+    iconEdit.src = editIcon;
+    iconEdit.setAttribute('data-project', projectArrayNumber);
+    iconEdit.setAttribute('data-todo', todoArrayNumber);
+    iconEdit.classList.add('editTodo');
+
+    todoIconsDiv.appendChild(iconDelete);
+    todoIconsDiv.appendChild(iconEdit);
+
+    todoExpandDiv.appendChild(todoExpand);
+
+    todoExpandDiv.appendChild(todoIconsDiv);
+
+    parentSelector.insertBefore(todoExpandDiv, siblingSelector.nextSibling);
+
+    iconDelete.addEventListener('click', deleteTodoForm);
+    iconEdit.addEventListener('click', editTodoForm);
+}

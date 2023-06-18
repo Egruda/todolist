@@ -35,10 +35,13 @@ h2 {
     background-color: #FFDEDE;
     flex: 4;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 30% 30% 30%;
+    grid-auto-columns: 30%;
     padding: 30px;
     gap: 50px;
     position: relative;
+    grid-auto-flow: column;
+    overflow: scroll;
 }
 
 .icon {
@@ -144,4 +147,9 @@ input {
 .divProjectForm form {
     display: flex;
     gap: 15px;
+    align-items: center;
+}
+
+.todo-form {
+    width: 1000px;
 }

@@ -1,3 +1,6 @@
+import {format, parseISO} from "date-fns"; 
+
+
 // create to do factories
 
 const todo = (title, description, dueDate, priority, checklist) => {
@@ -68,12 +71,33 @@ export function addTodos(projectArrayNumber) {
     let title = document.querySelector('.todo-title').value;
     let description = document.querySelector('.todo-description').value;
     let duedate = document.querySelector('.todo-duedate').value;
+
+    duedate = new Date(duedate);
+    duedate = format(duedate, "MMM dd, yy");    
+  
+    
     let priority = document.querySelector('select').value;
     
+
 
     title = addTodo(title, description, duedate, priority);
     projectArray[projectArrayNumber].todoArray.push(title);
 }
+
+export function editTodo(projectArrayNumber, todoArrayNumber) {
+    let title = document.querySelector('.todo-title').value;
+    let description = document.querySelector('.todo-description').value;
+    let duedate = document.querySelector('.todo-duedate').value;
+    duedate = new Date(duedate);
+    duedate = format(duedate, "MMM dd, yy");    
+    let priority = document.querySelector('select').value;
+    
+    projectArray[projectArrayNumber].todoArray[todoArrayNumber].title = title;
+    projectArray[projectArrayNumber].todoArray[todoArrayNumber].description = description;
+    projectArray[projectArrayNumber].todoArray[todoArrayNumber].dueDate = duedate;
+    projectArray[projectArrayNumber].todoArray[todoArrayNumber].priority = priority;
+}   
+
 
 // delete Todo
 export function deleteTodo(projectArrayNumber, todoArrayNumber) {
@@ -84,10 +108,10 @@ export function deleteTodo(projectArrayNumber, todoArrayNumber) {
 
 // project and todo samples for testing
 
-const Run = todo('Run', 'Run in marathon', '8 Dec', 'High', 'Not completed');
-const Swim = todo('Swimming', '10 laps', '10 Dec', 'Medium', 'Completed');
-const Training = project('Training');
-const Midterm = todo ('Midterm', 'Math Midterm', '10 Aug', 'Medium Priority', 'No Notes', 'Not completed');
+let Run = todo('Run', 'Run in marathon', format(new Date("2023-12-10"), ("MMM dd, yy")), 'High', 'Not completed');
+let Swim = todo('Swim', '10 laps', format(new Date("2023-12-08"), ("MMM dd, yy")), 'Medium', 'Completed');
+let Training = project('Training');
+const Midterm = todo ('Midterm', 'Math Midterm', format(new Date("2023-08-10"), ("MMM dd, yy")), 'Medium Priority', 'No Notes', 'Not completed');
 const Studying = project('Studying');
 Studying.todoArray[0] = Midterm;
 Training.todoArray[0] = Run;
